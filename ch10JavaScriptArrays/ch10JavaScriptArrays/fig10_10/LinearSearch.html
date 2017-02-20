@@ -1,0 +1,82 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!-- Fig. 10.10: LinearSearch.html -->
+<!-- Linear search of an array. -->
+<html xmlns = "http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Linear Search of an Array</title>
+      <script type = "text/javascript">   
+         <!--
+         var a = new Array( 100 );  // create an Array
+                      
+         // fill Array with even integer values from 0 to 198
+         for ( var i = 0; i < a.length; ++i ) 
+            a[ i ] = 2 * i;                  
+
+         // function called when "Search" button is pressed
+         function buttonPressed()
+         {
+            // get the input text field
+            var inputVal = document.getElementById( "inputVal" );
+
+            // get the result text field
+            var result = document.getElementById( "result" );
+
+            // get the search key from the input text field
+            var searchKey = inputVal.value;
+
+            // Array a is passed to linearSearch even though it
+            // is a global variable. Normally an array will
+            // be passed to a method for searching.
+            var element = linearSearch( a, parseInt( searchKey ) );
+
+            if ( element != -1 )
+               result.value = "Found value in element " + element;
+            else
+               result.value = "Value not found";
+         } // end function buttonPressed
+   
+         // Search "theArray" for the specified "key" value
+         function linearSearch( theArray, key ) 
+         {   
+            // iterates through each element of the array in order 
+            for ( var n = 0; n < theArray.length; ++n ) 
+               if ( theArray[ n ] == key )              
+                  return n;                             
+
+            return -1;
+         } // end function linearSearch
+         // -->
+      </script>
+   </head>
+
+   <body>
+      <form action  = "">
+         <p>Enter integer search key<br />
+         <input id = "inputVal" type = "text" />
+         <input type = "button" value = "Search" 
+                onclick = "buttonPressed()" /><br /></p>
+         <p>Result<br />
+         <input id = "result" type = "text" size = "30" /></p>
+      </form>
+   </body>
+</html>
+
+<!--
+**************************************************************************
+* (C) Copyright 1992-2008 by Deitel & Associates, Inc. and               *
+* Pearson Education, Inc. All Rights Reserved.                           *
+*                                                                        *
+* DISCLAIMER: The authors and publisher of this book have used their     *
+* best efforts in preparing the book. These efforts include the          *
+* development, research, and testing of the theories and programs        *
+* to determine their effectiveness. The authors and publisher make       *
+* no warranty of any kind, expressed or implied, with regard to these    *
+* programs or to the documentation contained in these books. The authors *
+* and publisher shall not be liable in any event for incidental or       *
+* consequential damages in connection with, or arising out of, the       *
+* furnishing, performance, or use of these programs.                     *
+**************************************************************************
+-->

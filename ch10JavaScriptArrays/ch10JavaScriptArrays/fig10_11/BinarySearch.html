@@ -1,0 +1,118 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!-- Fig. 10.11: BinarySearch.html -->
+<!-- Binary search of an array. -->
+<html xmlns = "http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Binary Search</title>
+      <script type = "text/javascript">
+         <!--
+         var a = new Array( 15 );
+
+         for ( var i = 0; i < a.length; ++i )
+            a[ i ] = 2 * i;
+
+         // function called when "Search" button is pressed
+         function buttonPressed()
+         {
+            var inputVal = document.getElementById( "inputVal" );
+            var result = document.getElementById( "result" );
+            var searchKey = inputVal.value;
+      
+            result.value = "Portions of array searched\n";
+
+            // Array a is passed to binarySearch even though it
+            // is a global variable. This is done because 
+            // normally an array is passed to a method
+            // for searching.
+            var element =                               
+               binarySearch( a, parseInt( searchKey ) );
+
+            if ( element != -1 )
+               result.value += "\nFound value in element " + element;
+            else
+               result.value += "\nValue not found";
+         } // end function buttonPressed
+   
+         // binary search function
+         function binarySearch( theArray, key ) 
+         {
+            var low = 0; // low subscript
+            var high = theArray.length - 1; // high subscript
+            var middle; // middle subscript
+
+            while ( low <= high ) {                            
+               middle = ( low + high ) / 2;                    
+                                                               
+               // The following line is used to display the    
+               // part of theArray currently being manipulated 
+               // during each iteration of the binary          
+               // search loop.                                 
+               buildOutput( theArray, low, middle, high );     
+                                                               
+               if ( key == theArray[ middle ] )  // match      
+                  return middle;                               
+               else if ( key < theArray[ middle ] )            
+                  high = middle - 1; // search low end of array
+               else                                            
+                  low = middle + 1; // search high end of array
+            } // end while
+
+            return -1;   // searchKey not found
+         } // end function binarySearch
+
+         // Build one row of output showing the current
+         // part of the array being processed.
+         function buildOutput( theArray, low, mid, high )
+         {
+            var result = document.getElementById( "result" );
+
+            for ( var i = 0; i < theArray.length; i++ )
+            {
+               if ( i < low || i > high )
+                  result.value += "    ";
+               else if ( i == mid ) // mark middle element in output
+                  result.value += theArray[ i ] + 
+                     ( theArray[ i ] < 10 ? "*  " : "* " );
+               else                                          
+                  result.value += theArray[ i ] + 
+                     ( theArray[ i ] < 10 ? "   " : "  " );
+            } // end for
+
+            result.value += "\n";
+         } // end function buildOutput
+         // -->
+      </script>
+   </head>
+
+   <body>
+      <form action = "">
+         <p>Enter integer search key<br />
+         <input id = "inputVal" type = "text" />
+         <input type = "button" value = "Search"
+            onclick = "buttonPressed()" /><br /></p>
+         <p>Result<br />
+         <textarea id = "result" rows = "7" cols = "60">
+         </textarea></p>
+      </form>
+   </body>
+</html>
+
+<!--
+**************************************************************************
+* (C) Copyright 1992-2008 by Deitel & Associates, Inc. and               *
+* Pearson Education, Inc. All Rights Reserved.                           *
+*                                                                        *
+* DISCLAIMER: The authors and publisher of this book have used their     *
+* best efforts in preparing the book. These efforts include the          *
+* development, research, and testing of the theories and programs        *
+* to determine their effectiveness. The authors and publisher make       *
+* no warranty of any kind, expressed or implied, with regard to these    *
+* programs or to the documentation contained in these books. The authors *
+* and publisher shall not be liable in any event for incidental or       *
+* consequential damages in connection with, or arising out of, the       *
+* furnishing, performance, or use of these programs.                     *
+**************************************************************************
+-->
